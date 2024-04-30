@@ -4,17 +4,17 @@ import gsap from "gsap";
 const GSAP = () => {
 
 
-    gsap.to('h1', {
-        fontSize: '100px',
-        color: 'blue',
-        duration: 5
+    gsap.to("#box", {
+        x: 1000,
+        duration: 5,
+        rotate: 360,
+        borderRadius: '50%',
+
+        repeat: -1,
+        yoyo: true,
     })
 
-    gsap.from('h1', {
-        fontSize: '50px',
-        color: 'red',
-        delay: 5
-    })
+
 
 
     return (
@@ -22,9 +22,7 @@ const GSAP = () => {
 
 
             <div className='box' id='box'>
-                <h1>Hello Im piyal</h1>
-                <h1>Im Web Developer</h1>
-                <h1>Photograpper</h1>
+
             </div>
 
         </div>
