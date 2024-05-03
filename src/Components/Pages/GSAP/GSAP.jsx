@@ -1,32 +1,23 @@
-import style from './style.css';
-import gsap from "gsap";
+import { gsap } from "gsap";
+import style from "./style.css";
 
 const GSAP = () => {
 
 
-    gsap.to("#box", {
-        x: 1000,
-        duration: 5,
-        rotate: 360,
-        borderRadius: '50%',
 
-        repeat: -1,
-        yoyo: true,
+    gsap.from('.box', {
+        y: -30,
+        opacity: 0,
+        duration: 1,
     })
-
-
-
 
     return (
         <div>
 
-
-            <div className='box' id='box'>
-
-            </div>
+            <div id="#box" className="box"></div>
 
         </div>
     );
-};
+}
 
 export default GSAP;
