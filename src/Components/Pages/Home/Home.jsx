@@ -5,11 +5,19 @@ const Home = () => {
 
 
     useGSAP(() => {
-        gsap.from('#box', {
-            y: -50,
+
+        gsap.from('#nav-logo', {
+            y: -30,
             opacity: 0,
-            duration: 2
+            duration: 0.5
         })
+
+        gsap.from('#nav-items ul li', {
+            y: -60,
+            delay: 0.5,
+            stagger: 0.5
+        })
+
     })
 
 
@@ -17,8 +25,19 @@ const Home = () => {
     return (
         <div>
 
-            <div id="box" className="w-[200px] h-[200px] bg-yellow-400 rounded-full mt-20">
+            <div id="nav" className="flex justify-between items-center container m-auto mt-4">
 
+                <div id="nav-logo" className="text-4xl font-extrabold">Logo</div>
+
+                <div id="nav-items" className="text-3xl font-bold text-green-600">
+                    <ul className="flex gap-6">
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Contact</li>
+                        <li>Help</li>
+                        <li>Blog</li>
+                    </ul>
+                </div>
             </div>
 
         </div>
