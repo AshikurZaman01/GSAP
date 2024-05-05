@@ -2,36 +2,45 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import { useState } from "react";
 const Home = () => {
 
 
+    const [circleValue, setCircleValue] = useState(0)
+
+    const randomValue = () => {
+        setCircleValue(Math.floor(Math.random(circleValue) * 200))
+
+    }
+
+    const btn = () => {
+        randomValue()
+        console.log(circleValue)
+    }
+
     useGSAP(() => {
-        gsap.from('.box', {
-            y: 30,
-            opacity: 0,
+        gsap.to(".circle", {
+            x: circleValue,
+            y: circleValue,
             duration: 1,
-            rotate: 720,
 
         })
-    }, { scope: ".contan1" })
-
-
-
-
+    }, [circleValue])
 
 
     return (
-        <div className="container mx-auto flex gap-10 justify-center items-center h-screen">
 
-            <div className="contan1 border border-black p-20">
-                <div className="circle w-[200px] h-[200px] bg-yellow-300 rounded-full"></div>
-                <div className="box w-[200px] h-[200px] bg-red-400"></div>
+        <div className="flex justify-center items-center h-screen">
+
+
+            <div className="flex flex-col gap-10">
+
+                <button onClick={btn} className="btn btn-md btn-success">Animated</button>
+
+                <div className="circle w-[120px] h-[120px] bg-red-500 rounded-full "></div>
+
             </div>
 
-            <div className="contan2">
-                <div className="circle w-[200px] h-[200px] bg-yellow-300 rounded-full"></div>
-                <div className="box w-[200px] h-[200px] bg-red-400"></div>
-            </div>
 
         </div>
     );
